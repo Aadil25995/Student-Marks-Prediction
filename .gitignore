@@ -103,8 +103,6 @@ celerybeat.pid
 
 # Environments
 .artifacts
-artifacts/
-artifacs.bak/
 .env
 .venv
 env/
