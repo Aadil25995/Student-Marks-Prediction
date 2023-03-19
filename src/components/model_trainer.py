@@ -23,11 +23,12 @@ from xgboost import XGBRegressor
 from src.exception import CustomException
 from src.utils import save_object
 from src.logger import logging
-from src.utils import evaluate_models
+from src.utils import evaluate_models,save_model_report
 
 @dataclass
 class ModelTrainerConfig:
     trained_model_file_path = os.path.join('artifacts','model.pkl')
+    model_report_file_path = os.path.join('artifacts','model_report.txt')
 
 class ModelTrainer:
     def __init__(self):
@@ -120,8 +121,11 @@ class ModelTrainer:
             predicted = best_model.predict(X_test)
 
             r2_square =  r2_score(y_test,predicted)
+            logging.info('Hyper Parameter Tuning completed')
 
-            return r2_square
+            save = save_model_report(self.model_trainer_config.model_report_file_path,best_model_name,r2_square,model_report)
+
+            return (r2_square,best_model_name,best_model_score,model_report)
 
 
         except Exception as e:

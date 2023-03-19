@@ -1,0 +1,22 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Student Exam Performance Data Train Information</h1>
+   
+        <h2>
+            <legend>Model Training Report</legend>
+        </h2>
+        <ul>
+            {% for key, value in model_report.items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+        <h3>
+            The  Best model is - {{best_model}}
+        </h3>
+        <h3>
+            The  Best model score is - {{best_model_score}}
+        </h3>
+        
+   <body>
+</html>

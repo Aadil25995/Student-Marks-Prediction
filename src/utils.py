@@ -31,7 +31,7 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, param):
         for i in range(len(list(models))):
             model = list(models.values())[i]
             para = param[list(models.keys())[i]]
-
+            logging.info('Evaluating {0} with parameters: {1}'.format(list(models.keys())[i],para))
             gs = GridSearchCV(model,para,cv=3)
             gs.fit(X_train,y_train)
 
@@ -59,3 +59,19 @@ def load_object(file_path):
     
     except Exception as e:
         raise CustomException(e,sys)
+    
+def save_model_report(file_path,best_model,best_model_score,model_report):
+    try:
+        logging.info('Preparing Model Report') 
+        with open(file_path,'w') as file_obj:
+            file_obj.write('Training Report of various models\n')
+            for key, value in model_report.items():
+                file_obj.write('{0}: {1}\n'.format(key,value)) 
+            file_obj.write('Best Model: {0}\n'.format(best_model))
+            file_obj.write('Best Model Score: {0}\n'.format(best_model_score))
+        logging.info('Model Report Generated')
+        return None
+    
+    except Exception as e:
+        raise CustomException(e,sys)
+    

@@ -1,0 +1,13 @@
+Training Report of various models
+Linear Regression: 0.8795158595242263
+Lasso: 0.8564278149469471
+Ridge: 0.8805671790733922
+K-Neighbors Regressor: 0.47561174068704326
+Decision Tree: 0.750738066823814
+Random Forest: 0.8528439792588441
+XGBRegressor: 0.8641759493504592
+CatBoosting Regressor: 0.8613734525258083
+AdaBoost Regressor: 0.8533136414884666
+Gradient Boosting: 0.8755713414488803
+Best Model: Ridge
+Best Model Score: 0.8805671790733922

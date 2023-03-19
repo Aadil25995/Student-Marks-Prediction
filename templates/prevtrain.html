@@ -1,0 +1,29 @@
+<html>
+<body>
+    <div class="login">
+       
+        
+        <form action="{{ url_for('train_datapoint')}}" method="post">
+            <h1>
+                <legend>Info of latest trained model</legend>
+            </h1>
+            <h3>
+                {{title}}
+            </h3>
+            <ul>
+                {% for line in contents %}
+                    <li>{{line}}</li>
+                {% endfor %}
+            </ul>
+            <h3>
+                {{best_model}}
+            </h3>
+            <h3>
+                {{best_model_score}}
+            </h3>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Train Model" required />
+            </div>
+        </form>
+   <body>
+</html>
